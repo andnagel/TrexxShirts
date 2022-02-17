@@ -1,34 +1,44 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
-        firstName: {
+    const Address = sequelize.define('Address', {
+        street: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true,
             },
         },
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate:{
-                notEmpty: true,
-            },
-        },
-        email: {
+        number: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true,
             },
         },
-        password: {
+        zip:{
             type: DataTypes.STRING,
             allowNull: false,
-            validate:{
+            validate: {
                 notEmpty: true,
             },
         },
-    })
-
-    return User;
+        city:{
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
+        country:{
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            },
+        },
+        
+    });
+    Address.hasMany(models.Order);
+    
+    
+    return Address;
 }

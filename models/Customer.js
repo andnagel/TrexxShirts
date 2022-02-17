@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
-        firstName: {
+    const Customer = sequelize.define('Customer', {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -10,25 +10,36 @@ module.exports = (sequelize, DataTypes) => {
         lastName: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate:{
+            validate: {
                 notEmpty: true,
             },
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
+            validate:{
                 notEmpty: true,
             },
         },
-        password: {
-            type: DataTypes.STRING,
+        birthdate:{
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+            validate:{
+                notEmpty: true,
+            },
+        },
+        subscriptionStatus:{
+            type: DataTypes.BOOLEAN,
             allowNull: false,
             validate:{
                 notEmpty: true,
             },
         },
     })
-
-    return User;
+    
+    Customer.hasMany(models.Address);
+    Customer.hasMany(models.Order);
+    Customer.hasMany(models.Payment);
+    
+    return Customer;
 }

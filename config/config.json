@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "stunning-waffle-dev",
+    "password": "Directive-Slacker-Ravioli2",
+    "database": "trexxshirts_dev",
+    "host": "strange-sky.de",
+    "port": 9667,
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

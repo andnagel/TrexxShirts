@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const port = 8000
+const db = require('./models')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -39,8 +40,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => {
-  console.log(`Server is listening on ${port}`)
+// Actual Start of Program
+db.sequelize.sync().then((req)=>{
+  app.listen(port, ()=>{
+    console.log(`Server is running on port ${port}`)
+  })
 })
+
+
 
 module.exports = app;

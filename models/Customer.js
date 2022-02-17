@@ -37,9 +37,6 @@ module.exports = (sequelize, DataTypes) => {
         },
     })
     
-    Customer.hasMany(models.Address);
-    Customer.hasMany(models.Order);
-    Customer.hasMany(models.Payment);
     
     return Customer;
 }

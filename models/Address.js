@@ -37,7 +37,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         
     });
-    Address.hasMany(models.Order);
     
     
     return Address;

@@ -17,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         },
     })
 
-    Order.hasOne(models.Payment);
-    Order.hasOne(models.Address);
+
 
     return Order
 }

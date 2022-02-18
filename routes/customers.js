@@ -5,11 +5,11 @@ var db = require('../models')
 
 router.get('/', function(req, res) {
   db.Customer.findAll().then(customers => 
-    res.render('customers/list.pug', { title: 'Kunden', customers: customers}));
+    res.render('customer/list.pug', { title: 'Kunden', customers: customers}));
 });
 
 router.get('/new', function(req, res) {
-  res.render('newCustomer.pug', { title: 'Kunden'});
+  res.render('customer/new.pug', { title: 'Kunden'});
 });
 
 router.post('/new', function(req, res) {

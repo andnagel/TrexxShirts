@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Willkommen zur Verwaltung der #{title}
+
+  p Neuen Kunden anlegen 
+
+  form(action="/customers/create", method="POST")
+    input(type="text", name="firstName")
+    input(type="text", name="lastName")
+    input(type="email", name="email")
+    
+ 
+    button(type="submit") Anlegen 

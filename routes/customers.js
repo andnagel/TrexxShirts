@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../models')
 
 
 router.get('/', function(req, res) {
+  //db.Customer.findAll().then(customers => res.send(customers));
   res.render('customers.pug', { title: 'Kunden'});
 });
 

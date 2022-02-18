@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true,
             },
         },
-    });
+    })
 
     return User;
-};
+}

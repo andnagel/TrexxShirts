@@ -5,11 +5,11 @@ var db = require('../models')
 
 router.get('/', function(req, res) {
   db.Customer.findAll().then(customers => 
-    res.render('customer/list.pug', { title: 'Kunden', customers: customers}));
+    res.render('customer/list.pug', { title: 'Alle Kunden', customers: customers}));
 });
 
 router.get('/new', function(req, res) {
-  res.render('customer/new.pug', { title: 'Kunden'});
+  res.render('customer/new.pug', { title: 'Neuer Kunde'});
 });
 
 router.post('/new', function(req, res) {
@@ -19,14 +19,35 @@ router.post('/new', function(req, res) {
     email: req.body.email,
     birthdate: req.body.birthdate,
     subscriptionStatus: req.body.subscriptionStatus
-  }).then(submittedCustomer => res.send(submittedCustomer));
+  }).then(customer => res.render('customer/details.pug', {customer: customer}));
 });
 
 router.get('/:id', function(req, res) {
-  db.Customer.findAll({
-    where: { id: req.params.id }
-  }).then(customer => res.render('customers/details.pug', { customer: customer}));
+  db.Customer.findByPk(req.params.id)
+  .then(customer => res.render('customer/details.pug', { customer: customer}));
 });
+
+router.delete('/delete/:id', (req, res) => {
+  db.Customer.destroy({
+    where: { id: req.params.id }
+  }).then(() => res.render('customer/list.pug', { title: 'Alle Kunden', customers: customers}));
+});
+
+router.put('/edit', (req, res) => {
+  db.Customer.update(
+    {
+      name: req.body.name,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      birthdate: req.body.birthdate,
+      subscriptionStatus: req.body.subscriptionStatus
+    },
+    {
+      where: { id: req.body.id }
+    }
+  ).then( customer => res.render('customer/details.pug', { customer: customer}));
+});
+
 
 
 module.exports = router;

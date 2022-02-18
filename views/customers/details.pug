@@ -1,12 +1,11 @@
-extends layout
+extends ../layout
 
 block content
-  h1= title
-  p Willkommen zur Verwaltung der #{title}
+  h1= customer[0].name
 
-  p Neuen Kunden anlegen 
+  p Daten von Kunde #{customer[0].name} ändern
 
-  form(action="/customers/new", method="POST")
+  form(action="/customers/edit", method="PUT")
     input(type="text", name="name")
     input(type="text", name="lastName")
     input(type="email", name="email")
@@ -14,4 +13,4 @@ block content
     input(type="checkbox", name="subscriptionStatus")
     
  
-    button(type="submit") Anlegen 
+    button(type="submit") Ändern

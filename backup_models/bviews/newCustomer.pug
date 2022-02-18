@@ -6,10 +6,12 @@ block content
 
   p Neuen Kunden anlegen 
 
-  form(action="/customers/create", method="POST")
-    input(type="text", name="firstName")
+  form(action="/customers/new", method="POST")
+    input(type="text", name="name")
     input(type="text", name="lastName")
     input(type="email", name="email")
+    input(type="date", name="birthdate")
+    input(type="checkbox", name="subscriptionStatus")
     
  
     button(type="submit") Anlegen 

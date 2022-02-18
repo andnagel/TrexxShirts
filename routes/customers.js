@@ -5,11 +5,11 @@ var db = require('../models')
 
 router.get('/', function(req, res) {
   //db.Customer.findAll().then(customers => res.send(customers));
-  res.render('customers.pug', { title: 'Kunden'});
+  res.render('customer/customerList.pug', { title: 'Kunden'});
 });
 
 router.get('/new', function(req, res) {
-  res.render('newCustomer.pug', { title: 'Kunden'});
+  res.render('customer/customerNew.pug', { title: 'Kunden'});
 });
 
 // router.get('/details/:id', function(req, res) {
@@ -18,7 +18,7 @@ router.get('/new', function(req, res) {
 //     })
 //   });
 
-router.post('/create', function(req, res) {
+router.post('/new', function(req, res) {
   console.log('It worked')
 });
 

@@ -1,4 +1,14 @@
 extends ../layout 
 
 block content
-        
+
+    h1= title 
+    
+    br
+    br
+
+    ul 
+        each item in customers                  
+            a(target="_self" href="/customers/details/" + item.id) 
+                li= item.name
+            

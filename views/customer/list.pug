@@ -3,5 +3,11 @@ extends ../layout
 block content
 
     h1= title 
+    
+    br
+    br
 
-        p #{customers[0].name}
+    ul 
+        each item in customers                  
+            li= item.name
+            

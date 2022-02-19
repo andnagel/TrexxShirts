@@ -2,6 +2,7 @@ const customerId = document.getElementById("customerId");
 const btnSearchCustomer = document.getElementById("btnSearchCustomer");
 
 btnSearchCustomer.addEventListener("click", () => {
-    console.log(customerId.value);
+    const id = customerId.value;
+    console.log(id)
     // navigate to details view with this value
 });

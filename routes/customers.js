@@ -22,7 +22,7 @@ router.post('/new', function(req, res) {
   }).then(customer => res.render('customer/details.pug', {customer: customer}));
 });
 
-router.get('/:id', function(req, res) {
+router.get('/details/:id', function(req, res) {
   db.Customer.findByPk(req.params.id)
   .then(customer => res.render('customer/details.pug', { customer: customer}));
 });

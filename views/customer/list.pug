@@ -9,5 +9,6 @@ block content
 
     ul 
         each item in customers                  
-            li= item.name
+            a(target="_self" href="/customers/details/" + item.id) 
+                li= item.name
             

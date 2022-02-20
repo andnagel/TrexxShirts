@@ -1,0 +1,14 @@
+.row {
+    justify-content: center;
+}
+
+.row>.card {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: 150ms;
+}
+
+.card.show {
+    transform: translateX(0px);
+    opacity: 1;
+}

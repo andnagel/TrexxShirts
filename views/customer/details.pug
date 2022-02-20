@@ -1,6 +1,86 @@
 extends ../layout 
 
-block content
+block scripts
+    script(src="/javascripts/details.js" defer)
+    link(rel="stylesheet", href="/stylesheets/details.css")
 
-    h1= customer.name
+block content
+    <div class="row wrapper">
+        <div class="col-12">
+            form(action="/customers/new", method="post") 
+                div(class="row")
+                    div(class="form-group col-md-6")
+                        label(for="name") Name
+                        input(type="text", class="form-control", id="name", name="name", placeholder="Name", value=customer.name)
+                    div(class="form-group col-md-6")
+                        label(for="lastName") Last Name
+                        input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Last Name", value=customer.lastName)
+                div(class="form-group")
+                    label(for="email") Email
+                    input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
+                div(class="form-group")
+                    label(for="birthdate") Birthdate
+                    input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Birthdate", value=customer.birthdate)
+                div(class="form-group")
+                    input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
+                    label(for="subscriptionStatus" class="form-check-label") Subscription Status
+                button(type="submit" class="btn btn-success") Änderungen speichern
+        </div>
+        <div class="container col-md-6">
+            div
+                if customer.addresses != null
+                    form(action="/customers/#{customer.id}/address/default" method="post")
+                        div(class="form-group")
+                            select(class="form-select")
+                                each address in customer.addresses
+                                    option(value="#{address.id}")
+                                        p(class="card-text") #{address.street}
+                                        p(class="card-text") #{address.number}
+                                        p(class="card-text") #{address.zip}
+                                        p(class="card-text") #{address.city}
+                                        p(class="card-text") #{address.country}
+            
+                button(type="button" class="btn btn-primary" id="btnShowNewAddress") Neue Adresse hinzufügen
+               
+        
+            div()
+                form(action="/customers/#{customer.id}/address" method="post" id="newAddress" class="hidden")
+                    div(class="form-group")
+                        label(for="street") Street
+                        input(type="text", class="form-control", id="street", name="street", placeholder="Street")
+                    div(class="form-group")
+                        label(for="number") Number
+                        input(type="number", class="form-control", id="number", name="number", placeholder="Number")
+                    div(class="form-group")
+                        label(for="zip") Zip
+                        input(type="text", class="form-control", id="zip", name="zip", placeholder="Zip")
+                    div(class="form-group")
+                        label(for="city") City
+                        input(type="text", class="form-control", id="city", name="city", placeholder="City")
+                    div(class="form-group")
+                        label(for="country") Country
+                        input(type="text", class="form-control", id="country", name="country", placeholder="Country")
+                    button(type="submit" class="btn btn-success") Abschicken und Speichern
+        </div>
+        <div class="container col-md-6">
+            div()
+                if customer.payments != null
+                    form(action="/customers/#{customer.id}/address/default" method="post")
+                        div(class="form-group")
+                            select(class="form-select")
+                                each payment in customer.payments
+                                    option(value="#{address.id}")
+                                    p(class="card-text") #{payment.provider}
+                button(type="button" class="btn btn-primary" id="btnShowNewPayment") Neue Zahlungsmöglichkeit hinzufügen
+               
+        
+            div()
+                form(action="/customers/#{customer.id}/provider" method="post" id="newPayment" class="hidden")
+                    div(class="form-group")
+                        label(for="provider") Provider
+                        input(type="text", class="form-control", id="provider", name="provider", placeholder="Provider")
+                    button(type="submit" class="btn btn-success") Abschicken und Speichern
+        </div>
+    </div>
+
 

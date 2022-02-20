@@ -4,8 +4,8 @@ var db = require('../models')
 
 
 router.get('/', function(req, res) {
-  db.Customer.findAll().then(customers => 
-    res.render('customer/list.pug', { title: 'Alle Kunden', customers: customers}));
+  db.Customer.findAll().then(customers => {
+    res.render('customer/list.pug', { title: 'Kundenübersicht', customers: customers})});
 });
 
 router.get('/new', function(req, res) {
@@ -23,8 +23,11 @@ router.post('/new', function(req, res) {
 });
 
 router.get('/details/:id', function(req, res) {
-  db.Customer.findByPk(req.params.id)
-  .then(customer => res.render('customer/details.pug', { customer: customer}));
+  db.Customer.findOne({where:{id: req.params.id}, includes: [db.Address, db.Payment]})
+  .then(customer =>{
+    console.log(customer);
+    res.render('customer/details.pug', { title:'Details', customer: customer})
+  });
 });
 
 router.delete('/delete/:id', (req, res) => {

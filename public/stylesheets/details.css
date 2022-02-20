@@ -1,0 +1,14 @@
+.hidden {
+    display: none;
+}
+
+.wrapper>* {
+    border: 2px solid #000;
+    border-radius: 3px;
+    padding: 5px;
+    max-width: 100%;
+    margin-top: 10px;
+
+}
+
+.wrapper {}

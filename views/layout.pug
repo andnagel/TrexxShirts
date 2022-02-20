@@ -8,7 +8,7 @@ html
     <script src="/javascripts/layout.js" defer></script>
     block scripts
   body
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="javascript:void(0)">TrexxShirts</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -26,43 +26,33 @@ html
               <a class="nav-link" href="/docs">Docs</a>
             </li>
           </ul>
-          <form class="d-flex">
+          <button class="btn btn-primary" type="button" id="btnNewCustomer">Neuer Kunde</button>
+          <form class="d-flex m-1">
             <input class="form-control me-2" id="customerId" type="text" placeholder="Kundennummer">
             <button class="btn btn-primary" type="button" id="btnSearchCustomer">Suchen</button>
           </form>
         </div>
       </div>
     </nav>
-      
-    <footer class="footer-07">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12 text-center">
-            <h2 class="footer-heading"><a href="#" class="logo">Colorlib.com</a></h2>
-            <p class="menu">
-              <a href="#">Home</a>
-              <a href="#">Agent</a>
-              <a href="#">About</a>
-              <a href="#">Listing</a>
-              <a href="#">Blog</a>
-              <a href="#">Contact</a>
-            </p>
-            <ul class="ftco-footer-social p-0">
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="ion-logo-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="ion-logo-instagram"></span></a></li>
-            </ul>
+
+    <div class="container-flex p-3">
+    block content
+    </div>
+    <footer class="bg-dark text-white text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Footer text</h5>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum animi voluptatibus rem natus laudantium voluptate impedit. Tenetur culpa, reprehenderit iure modi quibusdam molestiae accusantium, nam libero maxime nemo sunt natus?
           </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-md-12 text-center">
-            <p class="copyright">
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-            </p>
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Footer text</h5>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aperiam tenetur impedit exercitationem? Ipsum, beatae quo. Laudantium fugit consectetur debitis dolorem eligendi. Fuga ut similique consequatur laborum facilis maiores harum!
           </div>
         </div>
       </div>
-    </footer>  
-
-    block content
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="" href="/about">Tobias Wehrle und Andrei Nagel 2022</a>
+      </div>
+    </footer>
 

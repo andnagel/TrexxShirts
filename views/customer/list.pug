@@ -1,14 +1,24 @@
 extends ../layout 
 
+block scripts
+  script(src="/javascripts/customerList.js" defer)
+  link(rel="stylesheet", href="/stylesheets/list.css")
+
 block content
-
-    h1= title 
-    
-    br
-    br
-
-    ul 
-        each item in customers                  
-            a(target="_self" href="/customers/details/" + item.id) 
-                li= item.name
-            
+  h1= title 
+  br
+  div(class="row")
+    each customer in customers
+      <div class="card" style="width: 18rem;" id="#{customer.id}">
+        <div class="card-body">
+          <h5 class="card-title">#{customer.name + " " + customer.lastName}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">ID: #{customer.id}</h6>
+          label(class="label") Email:
+          p(class="card-text") #{customer.email}
+          p(class="card-text") Geburtsdatum: #{customer.birthdate}
+          p(class="card-text") Abo-Status: #{customer.subscriptionStatus?"Aktiv":"Inaktiv"}
+          <a href="/customers/details/#{customer.id}" class="card-link">
+            <button class="btn btn-primary" type="button" data-btn-details id="#{customer.id}">Details</button>
+          </a>
+        </div>
+      </div>

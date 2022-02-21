@@ -30,6 +30,15 @@ lastName.addEventListener("focusout", () => {
         btnSaveChanges.disabled = false;
     }
 });
+email.addEventListener("focusout", () => {
+    if (!validateEmail(email.value)) {
+        errorEmail.innerText = "Geben Sie eine gültige Email Adresse ein";
+        btnSaveChanges.disabled = true;
+    } else {
+        errorEmail.innerText = "";
+        btnSaveChanges.disabled = false;
+    }
+});
 
 birthdate.addEventListener("focusout", () => {
     let now = Date.now();
@@ -52,3 +61,8 @@ subscriptionStatus.addEventListener("change", () => {
     }
     console.log(subscriptionStatus.value);
 });
+
+function validateEmail(elementValue){      
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(elementValue); 
+  }

@@ -6,9 +6,9 @@ block scripts
     link(rel="stylesheet", href="/stylesheets/details.css")
 
 block content
-    <div class="row wrapper">
+    <div class="row wrapper" id=#{customer.id}>
         <div class="col-12">
-            form(action="/customers/new", method="post") 
+            form(action="/customers/"+ customer.id +"/edit", method="post") 
                 div(class="row")
                     div(class="form-group col-md-6")
                         label(for="name") Vorname
@@ -22,7 +22,7 @@ block content
                 label(for="email") Email
                 input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
                 label(id="errorEmail", style={color: 'red'})
-            div(class="form-group")
+                div(class="form-group")
                 label(for="birthdate") Geburtsdatum
                 input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Geburtsdatum", value=customer.birthdate)
                 label(id="errorBirthdate", style={color: 'red'})
@@ -30,6 +30,7 @@ block content
                     input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
                     label(for="subscriptionStatus" class="form-check-label") Subscription Status
                 button(type="submit" class="btn btn-success" id="btnSaveChanges") Änderungen speichern
+            button(type="button" class="btn btn-danger" id="btnDeleteCustomer") Kunde löschen
         </div>
         <div class="container col-md-6">
             div
@@ -69,12 +70,12 @@ block content
         </div>
         <div class="container col-md-6">
             div()
-                if customer.payments != null
+                if customer.Payments != null
                     form(action="/customers/#{customer.id}/address/default" method="post")
                         div(class="form-group")
                             select(class="form-select")
-                                each payment in customer.payments
-                                    option(value="#{address.id}")
+                                each payment in customer.Payments
+                                    option(value="#{payment.id}")
                                     p(class="card-text") #{payment.provider}
                 button(type="button" class="btn btn-primary" id="btnShowNewPayment") Neue Zahlungsmöglichkeit hinzufügen
                

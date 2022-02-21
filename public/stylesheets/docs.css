@@ -26,3 +26,8 @@
     font-weight: 900;
     transition: background-color 0.2s ease-in-out;
 }
+
+.webview {
+    position: relative;
+    width: 500px;
+}

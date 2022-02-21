@@ -21,10 +21,16 @@ block content
         <div class="docs col-8">
             <div class="main-section" id="intro">
                 h1 Einleitung
+                img(src="/images/trexxak.png", alt="Trexxak Logo")
                 h5 Aufgabenstellung
                 <p>
                     <iframe class="webview" src="https://cdn.jsdelivr.net/gh/trexxak/ProjectPrompts@main/Planspiel_Verwaltungssoftware_Shirts.md" name="iframeAufgabe"></iframe>
                 </p>
+                br
+                h5 Unsere Lösung
+                <p>Der TrexxShirts-Kundenmanager ist eine mehrseitige Webanwendung, die mit Node.js, Express.js und Sequelize realisiert wurde. Der TSK (patent-pending) bietet eine einfache und intuitive Oberfläche für alle nötigen Prozesse im Bereich des Kundenmanagments, eine Anbindung an eine Datenbank und ist ein Open-Source Projekt, welches mit Erweiterbarkeit im Fokus entwickelt wurde.
+                </p>
+                br
                 h5 Begriffserläuterungen
                 <p>
                     <strong>Node.js</strong> ist eine JavaScript-Runtime-Environment, die es ermöglicht Fullstack-Webapplikationen mit JavaScript zu erstellen.
@@ -33,13 +39,12 @@ block content
                     br
                     <strong>Sequelize</strong> ist ein ORM (Object Relational Mapper) für Node.js, der es ermöglicht Modelle als erweiterte JavaScript "Klassen" zu definieren und diese mit einer Datanbank zu verknüpfen.
                 </p>
-                <h1>Einleitung</h1>
-                p Der Trexx-Shirts Kundenmanager ist eine Webanwendung, die mit Node.js, Express.js und Sequelize realisiert wurde. Es bietet eine einfache und intuitive Oberfläche für alle nötigen Prozesse im Bereich des Kundenmanagments, eine Anbindung an eine Datenbank und ist ein Open-Source Projekt.
             </div>
             <div class="main-section" id="node">
                 h1 Node
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui deserunt, laboriosam enim id tempore ex nihil repellat voluptatem ullam incidunt perferendis eveniet sint veniam atque! Vel, deleniti nobis officiis eius ab odio commodi laudantium sit, sint dolor molestias reiciendis, tempore earum pariatur dolores similique nulla voluptatum. Natus deserunt id, illum sapiente facilis recusandae ipsum fugit, nam blanditiis, dolorem quas maxime doloribus consequuntur unde voluptates. Doloremque eligendi quaerat aspernatur fuga voluptatum eos expedita itaque nemo, praesentium dolorem sequi error ab asperiores ipsa natus animi accusantium magni. Distinctio in atque nemo, hic reiciendis id quasi nobis, consectetur, qui vitae dolore ipsum.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia impedit at laudantium? Nam quaerat omnis deleniti perferendis culpa necessitatibus doloribus numquam consectetur, dicta sunt, dolor aperiam quo totam, labore voluptatibus voluptate in? Sapiente officiis error odio impedit nisi libero animi alias, iure neque nulla asperiores tempora, dolores illo minima, cupiditate voluptatem rerum! Magnam, molestiae? Quasi nesciunt delectus exercitationem quo aspernatur vel? Labore, odit numquam, maiores expedita rem tenetur, inventore assumenda totam dolor alias possimus temporibus provident error nobis reprehenderit ea nesciunt laborum quae quidem officiis debitis commodi! Voluptatum, voluptatibus! Tempore atque incidunt beatae a veritatis id unde qui tempora in.</p>
+                <p>Node.js ist eine open-source, cross-platform, back-end JavaScript Runtime-Environment, die auf der V8-Engine von Google läuft. Diese Umgebung ist notwendig um JavaScript außerhalb des Webbrowsers ausführen zu können. Es unterstützt dabei weiter die Entwickler mit einem eigenen Packet-Manager, mit dem mit wenig aufwand zusätzliche Bibliotheken herunter geladen werden und eingebunden werden können.</p>
+                <p><strong>npm</strong> steht für Node-Package-Manager, und ist in jeder modernen Installation von Node.js bereits enthalten. Um ein Node.js-Projekt im aktuellen Ordner zu initialisieren, wird der Befehl <code>npm init</code> ausgeführt. Dadurch entsteht im aktuellen eine package.json. In dieser Datei befinden sich alle nennenswerten Eigenschaften, die für eine spätere Veröffentlichung als Modul im Package-Manager benötigt werden, und ebenfalls eine Liste mit Abhängigkeiten.</p>
+                <p>Abhängigkeiten sind nachinstallierte Bibliotheken, die einem mit Helferfunktionen, Linting, Klassen und auch ganzen Frameworks das Leben als Entwickler angenehmer, aber nicht unbedingt einfacher machen. Diese Abhägigkeiten haben aber nicht nur positive Seiten. Wenn etwa eine Sicherheitslücke in einer populären Bibliothek bekannt wird, ist ganz schnell mal die halbe IT-Branche betroffen. Generell hält sich aber die Regel, dass Open-Source-Software der richtige Weg ist, um mehr Sicherheit, und in folge dessen auch mehr Transparenz über diese Sicherheit zu schaffen.</p>
             </div>
             <div class="main-section" id="express">
                 <h1>Express</h1>
@@ -59,7 +64,12 @@ block content
             <div class="main-section" id="sequelize">
             
                 <h1>Sequelize</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui deserunt, laboriosam enim id tempore ex nihil repellat voluptatem ullam incidunt perferendis eveniet sint veniam atque! Vel, deleniti nobis officiis eius ab odio commodi laudantium sit, sint dolor molestias reiciendis, tempore earum pariatur dolores similique nulla voluptatum. Natus deserunt id, illum sapiente facilis recusandae ipsum fugit, nam blanditiis, dolorem quas maxime doloribus consequuntur unde voluptates. Doloremque eligendi quaerat aspernatur fuga voluptatum eos expedita itaque nemo, praesentium dolorem sequi error ab asperiores ipsa natus animi accusantium magni. Distinctio in atque nemo, hic reiciendis id quasi nobis, consectetur, qui vitae dolore ipsum.</p>
+                <p>Sequelize ist eine Bibliothek mit Promise-Basiertem ORM (Object-Relational-Mapper) für Node.js. Sequelize bietet diese Funktionen für die meisten gängigen Datenbank-Typen und Systeme an, unter anderem:</p>
+                ul
+                    li <code>MySQL</code>
+                    li <code>PostgreSQL</code>
+                    li <code>SQLite</code>
+                    li <code>Microsoft SQL Server</code>
             </div>
             <div class="main-section" id="pug">
                 <h1>Pug</h1>

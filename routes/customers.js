@@ -12,7 +12,7 @@ router.get('/new', function(req, res) {
   res.render('customer/new.pug', { title: 'Neuer Kunde'});
 });
 
-router.post('/new', function(req, res) {
+router.post('/new', (req, res) => {
   db.Customer.create({
     name: req.body.name,
     lastName: req.body.lastName,
@@ -22,8 +22,8 @@ router.post('/new', function(req, res) {
   }).then(customer => res.render('customer/details.pug', {customer: customer}));
 });
 
-router.get('/details/:id', function(req, res) {
-  db.Customer.findOne({where:{id: req.params.id}, include: [db.Address, db.Payment]})
+router.get('/details/:id', (req, res) => {
+  db.Customer.findOne({where:{id: req.params.id}, include: [db.Address, db.Payment, db.Order]})
   .then(customer =>{
     if(customer == null)
       res.redirect('/customers');
@@ -42,7 +42,7 @@ router.delete('/delete/:id', (req, res) => {
   });
 });
 
-router.put('/edit', (req, res) => {
+router.post('/:id/edit', (req, res) => {
   db.Customer.update(
     {
       name: req.body.name,
@@ -52,13 +52,12 @@ router.put('/edit', (req, res) => {
       subscriptionStatus: req.body.subscriptionStatus
     },
     {
-      where: { id: req.body.id }
+      where: { id: req.params.id }
     }
-  ).then( customer => res.render('customer/details.pug', { customer: customer}));
+  ).then(res.redirect(`/customers/details/${req.params.id}`));
 });
 
-
-router.post('/:id/address', function(req, res) {
+router.post('/:id/address', (req, res) => {
   db.Address.create({
       street: req.body.street,
       number: req.body.number,
@@ -68,6 +67,23 @@ router.post('/:id/address', function(req, res) {
       CustomerId: req.params.id
   }).then(res.redirect(`/customers/details/${req.params.id}`));
 });
+
+router.post('/:id/provider', (req, res) => {
+  db.Payment.create({
+    provider: req.body.provider,
+    CustomerId: req.params.id
+  }).then(res.redirect(`/customers/details/${req.params.id}`));
+});
+
+router.post('/:id/order', (req, res) => {
+  db.Order.create({
+    payedStatus: req.body.payedStatus == "on" ? true : false,
+    invoiceId: req.body.invoiceId,
+    CustomerId: req.params.id
+  }).then(res.redirect(`/customers/details/${req.params.id}`));
+});
+
+
 
 
 module.exports = router;

@@ -81,6 +81,27 @@ block content
                         input(type="text", class="form-control", id="provider", name="provider", placeholder="Provider")
                     button(type="submit" class="btn btn-success") Abschicken und Speichern
         </div>
+        <div class="col-12">
+            div()
+                button(class="btn btn-primary" type="button", id="btnAddOrder") Bestellung hinzufügen
+            div()
+                form(action="/customers/#{customer.id}/order" method="post" id="newOrder" class="hidden")
+                    div(class="form-group")
+                        input(type="checkbox", class="form-input", id="orderStatus", name="orderStatus", checked=customer.orderStatus)
+                        label(for="orderStatus" class="form-check-label") Bezahlt?
+                    div(class="form-group")
+                        label(for="orderInvoiceId") Rechnungsnummer
+                        input(type="number", class="form-input", id="orderInvoiceId", name="orderInvoiceId", placeholder="1234567")
+                    button(type="submit" class="btn btn-success") Abschicken und Speichern
+            div()
+                ul(class="list-group")
+                    li(class="list-group-item") 1
+                    li(class="list-group-item") 1
+                    li(class="list-group-item") 1
+                    li(class="list-group-item") 1
+                    li(class="list-group-item") 1
+                    li(class="list-group-item") 1
+        </div>
     </div>
 
 

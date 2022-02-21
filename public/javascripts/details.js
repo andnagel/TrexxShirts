@@ -3,8 +3,11 @@ const formNewAddress = document.getElementById("newAddress");
 const btnShowNewPayment = document.getElementById("btnShowNewPayment");
 const formNewPayment = document.getElementById("newPayment");
 const checkSubscriptionStatus = document.getElementById("subscriptionStatus");
+const btnAddOrder = document.getElementById("btnAddOrder");
+const formNewOrder = document.getElementById("newOrder")
 let showNewAddress = false;
 let showNewPayment = false;
+let showNewOrder = false;
 
 btnShowNewAddress.addEventListener("click", () => {
     showNewAddress = !showNewAddress;
@@ -33,4 +36,16 @@ btnShowNewPayment.addEventListener("click", () => {
         btnShowNewPayment.classList.add("btn-primary");
     }
 });
-
+btnAddOrder.addEventListener("click", () => {
+    showNewOrder = !showNewOrder;
+    if (showNewOrder) {
+        formNewOrder.classList.toggle("hidden", !showNewOrder);
+        btnAddOrder.classList.remove("btn-primary");
+        btnAddOrder.classList.add("btn-secondary");
+    }
+    else {
+        formNewOrder.classList.toggle("hidden", !showNewOrder);
+        btnAddOrder.classList.remove("btn-secondary");
+        btnAddOrder.classList.add("btn-primary");
+    }
+});

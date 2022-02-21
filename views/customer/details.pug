@@ -8,7 +8,7 @@ block scripts
 block content
     <div class="row wrapper" id=#{customer.id}>
         <div class="col-12">
-            form(action="/customers/" + customer.id + "/edit", method="post") 
+            form(action=`/customers/${customer.id}/edit`, method="post") 
                 div(class="row")
                     div(class="form-group col-md-6")
                         label(for="name") Vorname

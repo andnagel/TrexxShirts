@@ -30,7 +30,8 @@ block content
                     input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
                     label(for="subscriptionStatus" class="form-check-label") Subscription Status
                 button(type="submit" class="btn btn-success" id="btnSaveChanges") Änderungen speichern
-            button(type="button" class="btn btn-danger" id="btnDeleteCustomer") Kunde löschen
+            form(action="/customers/delete/" + customer.id, method="post") 
+                button(type="submit" class="btn btn-danger" id="btnDeleteCustomer") Kunde löschen
         </div>
         <div class="container col-md-6">
             div

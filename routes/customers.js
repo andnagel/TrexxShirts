@@ -32,12 +32,11 @@ router.get('/details/:id', (req, res) => {
   });
 });
 
-router.delete('/delete/:id', (req, res) => {
+router.post('/delete/:id', (req, res) => {
   db.Customer.destroy({
     where: { id: req.params.id }
   })
-  .then((customer) =>{
-    console.log(res.get('Method'))
+  .then(() =>{
     res.redirect('/customers')
   });
 });

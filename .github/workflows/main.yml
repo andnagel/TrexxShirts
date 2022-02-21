@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       # Fetches the given upstream-url
       - name: Fetch upstream Action(rebase)
         uses: tjusl/sync-upstream-repo@v0.1.6
@@ -30,5 +30,3 @@ jobs:
           upstream_repo: https://github.com/andnagel/trexxshirts.git
           upstream_branch: main
           local_branch: main
-      - name: echo
-        run: echo Fetched Upstream <3

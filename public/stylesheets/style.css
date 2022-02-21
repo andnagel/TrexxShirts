@@ -75,8 +75,19 @@ nav.navbar {
     font-size: 1.5em;
   }
 
+  .docs {
+    margin-left: 0px;
+    min-width: 100vw;
+  }
+
 }
 
 .main-section {
   margin: 50px 0px;
+}
+
+.webview {
+  width: 100%;
+  min-height: 300px;
+  border: none;
 }

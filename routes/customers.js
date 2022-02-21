@@ -35,7 +35,11 @@ router.get('/details/:id', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
   db.Customer.destroy({
     where: { id: req.params.id }
-  }).then(() => res.render('customer/list.pug', { title: 'Alle Kunden', customers: customers}));
+  })
+  .then((customer) =>{
+    console.log(res.get('Method'))
+    res.redirect('/customers')
+  });
 });
 
 router.post('/:id/edit', (req, res) => {

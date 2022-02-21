@@ -6,7 +6,7 @@ block scripts
     link(rel="stylesheet", href="/stylesheets/details.css")
 
 block content
-    <div class="row wrapper">
+    <div class="row wrapper" id=#{customer.id}>
         <div class="col-12">
             form(action="/customers/" + customer.id + "/edit", method="post") 
                 div(class="row")
@@ -30,6 +30,7 @@ block content
                     input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
                     label(for="subscriptionStatus" class="form-check-label") Subscription Status
                 button(type="submit" class="btn btn-success" id="btnSaveChanges") Änderungen speichern
+            button(type="button" class="btn btn-danger" id="btnDeleteCustomer") Kunde löschen
         </div>
         <div class="container col-md-6">
             div

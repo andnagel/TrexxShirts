@@ -11,4 +11,10 @@
 
 }
 
-.wrapper {}
+li.payed {
+    color: green;
+}
+
+li.not-payed {
+    color:red;
+}

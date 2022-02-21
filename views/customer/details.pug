@@ -8,7 +8,7 @@ block scripts
 block content
     <div class="row wrapper">
         <div class="col-12">
-            form(action="/customers/new", method="post") 
+            form(action="/customers/" + customer.id + "/edit", method="post") 
                 div(class="row")
                     div(class="form-group col-md-6")
                         label(for="name") Vorname
@@ -19,13 +19,13 @@ block content
                         input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Nachname", value=customer.lastName)
                         label(id="errorLastName", style={color: 'red'})
                 div(class="form-group")
-                label(for="email") Email
-                input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
-                label(id="errorEmail", style={color: 'red'})
-            div(class="form-group")
-                label(for="birthdate") Geburtsdatum
-                input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Geburtsdatum", value=customer.birthdate)
-                label(id="errorBirthdate", style={color: 'red'})
+                    label(for="email") Email
+                    input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
+                    label(id="errorEmail", style={color: 'red'})
+                div(class="form-group")
+                    label(for="birthdate") Geburtsdatum
+                    input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Geburtsdatum", value=customer.birthdate)
+                    label(id="errorBirthdate", style={color: 'red'})
                 div(class="form-group")
                     input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
                     label(for="subscriptionStatus" class="form-check-label") Subscription Status
@@ -51,36 +51,36 @@ block content
             div()
                 form(action="/customers/"+ customer.id +"/address" method="post" id="newAddress" class="hidden")
                     div(class="form-group")
-                        label(for="street") Street
-                        input(type="text", class="form-control", id="street", name="street", placeholder="Street")
+                        label(for="street") Strasse 
+                        input(type="text", class="form-control", id="street", name="street", placeholder="Strasse")
                     div(class="form-group")
-                        label(for="number") Number
-                        input(type="number", class="form-control", id="number", name="number", placeholder="Number")
+                        label(for="number") Hausnummer 
+                        input(type="number", class="form-control", id="number", name="number", placeholder="Hausnummer")
                     div(class="form-group")
-                        label(for="zip") Zip
-                        input(type="text", class="form-control", id="zip", name="zip", placeholder="Zip")
+                        label(for="zip") PLZ
+                        input(type="text", class="form-control", id="zip", name="zip", placeholder="PLZ")
                     div(class="form-group")
-                        label(for="city") City
-                        input(type="text", class="form-control", id="city", name="city", placeholder="City")
+                        label(for="city") Ort 
+                        input(type="text", class="form-control", id="city", name="city", placeholder="Ort")
                     div(class="form-group")
-                        label(for="country") Country
-                        input(type="text", class="form-control", id="country", name="country", placeholder="Country")
+                        label(for="country") Land
+                        input(type="text", class="form-control", id="country", name="country", placeholder="Land")
                     button(type="submit" class="btn btn-success") Abschicken und Speichern
         </div>
         <div class="container col-md-6">
             div()
-                if customer.payments != null
-                    form(action="/customers/#{customer.id}/address/default" method="post")
+                if customer.Payments != null
+                    form(action="/customers/"+ customer.id +"/provider/default" method="post")
                         div(class="form-group")
                             select(class="form-select")
-                                each payment in customer.payments
-                                    option(value="#{address.id}")
-                                    p(class="card-text") #{payment.provider}
+                                each payment in customer.Payments
+                                    option(value="#{payment.id}")
+                                        p(class="card-text") #{payment.provider}
                 button(type="button" class="btn btn-primary" id="btnShowNewPayment") Neue Zahlungsmöglichkeit hinzufügen
                
         
             div()
-                form(action="/customers/#{customer.id}/provider" method="post" id="newPayment" class="hidden")
+                form(action="/customers/"+ customer.id +"/provider" method="post" id="newPayment" class="hidden")
                     div(class="form-group")
                         label(for="provider") Provider
                         input(type="text", class="form-control", id="provider", name="provider", placeholder="Provider")
@@ -90,22 +90,20 @@ block content
             div()
                 button(class="btn btn-primary" type="button", id="btnAddOrder") Bestellung hinzufügen
             div()
-                form(action="/customers/#{customer.id}/order" method="post" id="newOrder" class="hidden")
+                form(action="/customers/"+ customer.id +"/order" method="post" id="newOrder" class="hidden")
                     div(class="form-group")
-                        input(type="checkbox", class="form-input", id="orderStatus", name="orderStatus", checked=customer.orderStatus)
-                        label(for="orderStatus" class="form-check-label") Bezahlt?
+                        input(type="checkbox", class="form-input", id="payedStatus", name="payedStatus", checked=customer.payedStatus)
+                        label(for="payedStatus" class="form-check-label") Bezahlt?
                     div(class="form-group")
-                        label(for="orderInvoiceId") Rechnungsnummer
-                        input(type="number", class="form-input", id="orderInvoiceId", name="orderInvoiceId", placeholder="1234567")
+                        label(for="invoiceId") Rechnungsnummer
+                        input(type="number", class="form-input", id="invoiceId", name="invoiceId", placeholder="1234567")
                     button(type="submit" class="btn btn-success") Abschicken und Speichern
             div()
-                ul(class="list-group")
-                    li(class="list-group-item") 1
-                    li(class="list-group-item") 1
-                    li(class="list-group-item") 1
-                    li(class="list-group-item") 1
-                    li(class="list-group-item") 1
-                    li(class="list-group-item") 1
+                if customer.Orders != null
+                    ul(class="list-group")                        
+                        each order in customer.Orders.reverse()
+                            li(class="list-group-item " + (order.payedStatus ? "payed" : "not-payed")) #{order.invoiceId}
+                    
         </div>
     </div>
 

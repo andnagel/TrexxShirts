@@ -8,21 +8,26 @@ block content
     h1= title 
 
     .container#wrapper
-        form(action="/customers/new", method="post") 
-            div(class="form-group")
-                label(for="name") Name
-                input(type="text", class="form-control", id="name", name="name", placeholder="Name")
-                label(for="lastName") Last Name
-                input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Last Name")
+        form(action="/customers/new", method="post")
+            div(class="row")
+                    div(class="form-group col-md-6")
+                        label(for="name") Vorname
+                        input(type="text", class="form-control", id="name", name="name", placeholder="Vorname")
+                        label(id="errorFirstName", style={color: 'red'})
+                    div(class="form-group col-md-6")
+                        label(for="lastName") Nachname
+                        input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Nachname")
+                        label(id="errorLastName", style={color: 'red'})    
             div(class="form-group")
                 label(for="email") Email
                 input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com")
+                label(id="errorEmail", style={color: 'red'})
             div(class="form-group")
-                label(for="birthdate") Birthdate
-                input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Birthdate")
-                label(id="birthdateError")
+                label(for="birthdate") Geburtsdatum
+                input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Geburtsdatum")
+                label(id="errorBirthdate", style={color: 'red'})
             div(class="form-group")
                 input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus")
                 label(for="subscriptionStatus" class="form-check-label") Subscription Status
-            button(type="submit" class="btn btn-primary") Änderungen speichern
+            button(type="submit" class="btn btn-primary" id="btnSaveChanges") Änderungen speichern
         

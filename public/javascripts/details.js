@@ -5,6 +5,7 @@ const formNewPayment = document.getElementById("newPayment");
 const checkSubscriptionStatus = document.getElementById("subscriptionStatus");
 const btnAddOrder = document.getElementById("btnAddOrder");
 const formNewOrder = document.getElementById("newOrder")
+const btnDeleteCustomer = document.getElementById("btnDeleteCustomer");
 let showNewAddress = false;
 let showNewPayment = false;
 let showNewOrder = false;
@@ -50,3 +51,20 @@ btnAddOrder.addEventListener("click", () => {
     }
 });
 
+btnDeleteCustomer.addEventListener("click", (e) => {
+    // get id of parentelement of button and send xhttprequest to "/customers/delete/:id"
+    let id = e.target.parentElement.parentElement.id;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `/customers/delete/${id}`);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            if(response.status == "success"){
+                // remove row from table
+                location.href(`/customers`);
+            }
+        }
+    }
+    xhr.send();
+
+    
+});

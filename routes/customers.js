@@ -25,6 +25,8 @@ router.post('/new', function(req, res) {
 router.get('/details/:id', function(req, res) {
   db.Customer.findOne({where:{id: req.params.id}, include: [db.Address, db.Payment]})
   .then(customer =>{
+    if(customer == null)
+      res.redirect('/customers');
     console.log(customer);
     res.render('customer/details.pug', { title:'Details', customer: customer})
   });
@@ -60,7 +62,7 @@ router.post('/:id/address', function(req, res) {
       city: req.body.city,
       country: req.body.country,
       CustomerId: req.params.id
-  }).then(res.redirect(`/customer/details/${req.params.id}`));
+  }).then(res.redirect(`/customers/details/${req.params.id}`));
 });
 
 

@@ -33,23 +33,23 @@ block content
         </div>
         <div class="container col-md-6">
             div
-                if customer.addresses != null
-                    form(action="/customers/#{customer.id}/address/default" method="post")
+                if customer.Addresses != null
+                    form(action="/customers/" + customer.id + "/address/default" method="post")
                         div(class="form-group")
                             select(class="form-select")
-                                each address in customer.addresses
+                                each address in customer.Addresses
                                     option(value="#{address.id}")
-                                        p(class="card-text") #{address.street}
-                                        p(class="card-text") #{address.number}
-                                        p(class="card-text") #{address.zip}
-                                        p(class="card-text") #{address.city}
+                                        p(class="card-text") #{address.street} 
+                                        p(class="card-text") #{address.number}; 
+                                        p(class="card-text") #{address.zip} 
+                                        p(class="card-text") #{address.city}; 
                                         p(class="card-text") #{address.country}
             
                 button(type="button" class="btn btn-primary" id="btnShowNewAddress") Neue Adresse hinzufügen
                
         
             div()
-                form(action="/customers/#{customer.id}/address" method="post" id="newAddress" class="hidden")
+                form(action="/customers/"+ customer.id +"/address" method="post" id="newAddress" class="hidden")
                     div(class="form-group")
                         label(for="street") Street
                         input(type="text", class="form-control", id="street", name="street", placeholder="Street")

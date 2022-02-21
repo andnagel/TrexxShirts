@@ -2,6 +2,7 @@ extends ../layout
 
 block scripts
     script(src="/javascripts/details.js" defer)
+    script(src="/javascripts/new.js" defer)
     link(rel="stylesheet", href="/stylesheets/details.css")
 
 block content
@@ -10,21 +11,25 @@ block content
             form(action="/customers/new", method="post") 
                 div(class="row")
                     div(class="form-group col-md-6")
-                        label(for="name") Name
-                        input(type="text", class="form-control", id="name", name="name", placeholder="Name", value=customer.name)
+                        label(for="name") Vorname
+                        input(type="text", class="form-control", id="name", name="name", placeholder="Vorname", value=customer.name)
+                        label(id="errorFirstName", style={color: 'red'})
                     div(class="form-group col-md-6")
-                        label(for="lastName") Last Name
-                        input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Last Name", value=customer.lastName)
+                        label(for="lastName") Nachname
+                        input(type="text", class="form-control", id="lastName", name="lastName", placeholder="Nachname", value=customer.lastName)
+                        label(id="errorLastName", style={color: 'red'})
                 div(class="form-group")
-                    label(for="email") Email
-                    input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
-                div(class="form-group")
-                    label(for="birthdate") Birthdate
-                    input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Birthdate", value=customer.birthdate)
+                label(for="email") Email
+                input(type="email", class="form-control", id="email", name="email", placeholder="example@gmail.com", value=customer.email)
+                label(id="errorEmail", style={color: 'red'})
+            div(class="form-group")
+                label(for="birthdate") Geburtsdatum
+                input(type="date", class="form-control", id="birthdate", name="birthdate", placeholder="Geburtsdatum", value=customer.birthdate)
+                label(id="errorBirthdate", style={color: 'red'})
                 div(class="form-group")
                     input(type="checkbox", class="form-input", id="subscriptionStatus", name="subscriptionStatus", checked=customer.subscriptionStatus)
                     label(for="subscriptionStatus" class="form-check-label") Subscription Status
-                button(type="submit" class="btn btn-success") Änderungen speichern
+                button(type="submit" class="btn btn-success" id="btnSaveChanges") Änderungen speichern
         </div>
         <div class="container col-md-6">
             div

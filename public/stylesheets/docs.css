@@ -12,6 +12,7 @@
     font-size: xx-large;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #ihvz>.link {
@@ -30,4 +31,9 @@
 .webview {
     position: relative;
     width: 500px;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

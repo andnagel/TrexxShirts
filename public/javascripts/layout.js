@@ -3,10 +3,20 @@ const btnSearchCustomer = document.getElementById("btnSearchCustomer");
 const btnNewCustomer = document.getElementById("btnNewCustomer");
 
 btnSearchCustomer.addEventListener("click", () => {
-    const id = customerId.value;
-    console.log(id);
-    // navigate to details view 
-    location.href = `/customers/details/${id}`;
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", "/customers/details/" + customerId.value, true);
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log("success");
+            // navigate to details view 
+            location.href = `/customers/details/` + customerId.value;
+        } else if(this.status != 200 && this.readyState == 4) {
+            customerId.value = "Kunde nicht vorhanden";
+            console.log("failed");
+        }
+    }
+    xhttp.send();    
 });
 
 btnNewCustomer.addEventListener("click", () => {

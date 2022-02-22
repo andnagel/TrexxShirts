@@ -48,7 +48,7 @@ block content
             </div>
             <div class="main-section" id="express">
                 <h1>Express</h1>
-                p Express ist ein einfaches serverseitiges Node.js Webframework. Es liefert einige Werkzeuge, mit denen das enwickeln von Webanwendungen erleichtert wird. Eine Express.js Anwendung besteht zumindest aus der Datei add.js, in welcher die Middleware und die Controller registriert und der Webserver gestartet wird.
+                p Express ist ein einfaches serverseitiges Node.js Webframework. Es liefert einige Werkzeuge, mit denen das enwickeln von Webanwendungen erleichtert wird. Eine Express.js Anwendung besteht zumindest aus der Datei app.js, in welcher die Middleware und die Controller registriert und der Webserver gestartet wird.
 
                 p Ein Beispiel aus unserer Anwendung: 
                 img(src="/images/app_use.jpg") 
@@ -75,15 +75,15 @@ block content
                 <h1>Pug</h1>
                 p Pug ist eine Template-Engine für Express.js und gilt als das standard View-Template. Wer sich mit Node.js und Express.js befasst, für den führt kein Weg an Pug vorbei. Es ist eine vereinfachte, whitespace-sensitive Schreibweise von HTML-Seiten. Mit simplen Textbefehlen, die den Namen der HTML-Tags entsprechen, baut man durch Einrückungen eine Baumstruktur auf, schließende Tags gibt es nicht. So bedeuten 2 Leerzeichen etwa, dass das folgende Element ein Kindelement des vorherigen ist. Außerdem bietet Pug viele mächtige Features wie z.B. Filtern, Vererbung, Iteration durch Sammlungen, Includes und vieles mehr.
                 img(src="/images/inheritance_from_layout.jpg") 
-                p Pug kann aber auch ohne Probleme mit der 'echten' HTML Schreibweise umgehen, die Verwendung kann aber manchmal zu unerwarteten Ergebnissen führen, zum Beispiel bei der Verwendung von Variablen: 
-                p Zwei Möglichkeiten wie man Variablen lokal deklariert: 
-                img(src="/images/strings_und_variablen.jpg")
-                p Das Ergebnis in HTML:
-                img(src="/images/html_ausgabe.jpg")
-                p Vermischt man aber diese beiden Möglichkeiten, bekommt nicht das gewünschte Ergebnis:
-                img(src="/images/attribute_interpolation.jpg") 
-                p Der bessere Weg:
-                img(src="/images/variablen_in_attribut.jpg")
+                p Pug kann auch ohne Probleme mit der 'echten' HTML Schreibweise umgehen, die Verwendung kann aber manchmal zu unerwarteten Ergebnissen führen, zum Beispiel bei der Verwendung von Variablen: 
+                    h6 Zwei Möglichkeiten wie man Variablen lokal deklariert: 
+                    img(src="/images/strings_und_variablen.jpg")
+                    h6 Das Ergebnis in HTML:
+                    img(src="/images/html_ausgabe.jpg")
+                    h6 Vermischt man aber diese beiden Möglichkeiten, bekommt nicht das gewünschte Ergebnis:
+                    img(src="/images/attribute_interpolation.jpg") 
+                    h6 Der bessere Weg:
+                    img(src="/images/variablen_in_attribut.jpg")
 
             </div>
             <div class="main-section" id="challenges">

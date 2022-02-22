@@ -26,7 +26,8 @@ router.get('/details/:id', (req, res) => {
   db.Customer.findOne({where:{id: req.params.id}, include: [db.Address, db.Payment, db.Order]})
   .then(customer =>{
     if(customer == null)
-      res.redirect('/customers');
+      //res.redirect('/customers');
+      res.status(404).send();
     console.log(customer);
     res.render('customer/details.pug', { title:'Details', customer: customer})
   });

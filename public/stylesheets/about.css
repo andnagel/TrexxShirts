@@ -34,6 +34,8 @@ h3 {
 
 #team img {
     margin-top: -50px;
+    border: 1px solid rgb(255, 0, 221);
+    box-shadow: 5px 5px 15px var(--card-color);
 }
 
 #team i {

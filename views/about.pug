@@ -1,13 +1,63 @@
 extends layout
 
+block scripts 
+    link(rel="stylesheet", href="stylesheets/about.css")
+
 
 block content
 
-    div(class="card")
-        div(class="card-header")
-            h5(class="card-title") Tobias Wehrle
-        div(class="card-body")
-            p(class="card-text")
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum animi voluptatibus rem natus laudantium voluptate impedit. Tenetur culpa, reprehenderit iure modi quibusdam molestiae accusantium, nam libero maxime nemo sunt natus?
-            p(class="card-text")
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aperiam tenetur impedit exercitationem? Ipsum, beatae quo. Laudantium fugit consectetur debitis dolorem eligendi. Fuga ut similique consequatur laborum facilis maiores harum!
+    section#team 
+        .container.my-3.py-5.text-center 
+            .row.mb-5 
+                .col 
+                    h1 Unser Team 
+                    p.mt-3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero assumenda quaerat placeat vero aspernatur tenetur, corrupti laborum, accusamus minima ipsam dolores alias explicabo. Dolore velit perspiciatis ducimus cum neque minus?
+            .row
+                .col-md-6 
+                    .card 
+                        .card-body 
+                            img(src="images/andreimandrei.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3")
+                            h3 Andrei Nagel 
+                            h5 agile lead consultant officer
+                            h6 Über mich:
+                            p angehender Fachinformatiker im Bereich der Anwendungsentwicklung
+                            h6 Interessen
+                            p Lesen
+                            p Zeit mit Familie
+                            p Sport
+                            .d-flex.flex-row.justify-content-center 
+                                .p-4 
+                                    a(href="#")
+                                        i.fa.fa-facebook
+                                .p-4 
+                                    a(href="#")
+                                        i.fa.fa-twitter
+                                .p-4 
+                                    a(href="https://github.com/andnagel")
+                                        i.fa.fa-github
+                            blockquote.blockquote Nachts ist es kälter als drausen 
+                                i.fa-regular.fa-face-grimace
+                .col-md-6 
+                    .card 
+                        .card-body 
+                            img(src="images/tobiwobi.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3")
+                            h3 Tobias Wehrle
+                            h5 agile lead consultant officer
+                            h6 Über mich:
+                            p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, sapiente.
+                            h6 Interessen
+                            p Lernen und Lehren
+                            p Webtechnologien
+                            p Videospiele und Gamedesign
+                            .d-flex.flex-row.justify-content-center 
+                                .p-4 
+                                    a(href="#")
+                                        i.fa.fa-facebook
+                                .p-4 
+                                    a(href="#")
+                                        i.fa.fa-twitter
+                                .p-4 
+                                    a(href="#")
+                                        i.fa.fa-github
+                            blockquote.blockquote Manchmal, wenn ich mich unbeobachtet fühle, teile ich heimlich durch 0 
+                                i.fa-regular.fa-face-grimace

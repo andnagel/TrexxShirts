@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const port = 8000
+const port = process.env.PORT || 5555
 const db = require('./models')
 
 var indexRouter = require('./routes/index');

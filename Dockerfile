@@ -26,11 +26,15 @@ COPY . .
 # configure a default environment variable for the PORT variable inside our code
 # JS: PORT = process.env.PORT || 8000
 # layer 6
-ENV PORT=8080
+ENV PORT=5555
 
 # exposes the default port to the host machine
-EXPOSE 8080
+EXPOSE 5555
 
 # command to run the app
 # layer 7
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
+
+
+# startcommand for this container to run
+# docker run -dp <desiredHostPort>:8080 --name trexxshirt evilweasel/trexxshirt

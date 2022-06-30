@@ -37,4 +37,4 @@ CMD ["node", "app.js"]
 
 
 # startcommand for this container to run
-# docker run -dp <desiredHostPort>:8080 --name trexxshirt evilweasel/trexxshirt
+# docker run -dp <desiredHostPort>:5555 --name trexxshirt evilweasel/trexxshirt

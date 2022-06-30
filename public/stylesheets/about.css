@@ -53,6 +53,7 @@ h3 {
     transition: all 0.3 ease-in;
     -webkit-transition: all 0.3 ease in;
     -moz-transition: all 0.3 ease-in;
+    min-height: 800px;
 }
 
 #team .card:hover {
